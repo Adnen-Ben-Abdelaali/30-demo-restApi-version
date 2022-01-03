@@ -18,7 +18,11 @@ public interface AlienRepo extends JpaRepository<Alien, Integer>{
 	*/
 	
 	List<Alien> findByAname(String aname);
+	List<Alien> findByAnameOrderByAnameDesc(String aname);
+	List<Alien> findByAnameOrderByAidDesc(String aname);
 	List<Alien> findByAid(int aid);
 	List<Alien> getByAid(int aid);
+	List<Alien> getByAname(String aname);
+	
 
 }
