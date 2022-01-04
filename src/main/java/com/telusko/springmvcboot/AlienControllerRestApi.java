@@ -1,5 +1,3 @@
-/*
-
 package com.telusko.springmvcboot;
 
 import java.util.List;
@@ -9,17 +7,27 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.telusko.springmvcboot.model.Alien;
 
+/* 
+
+@RestController == 
+
 @Controller
-public class AlienController {
+@ResponseBody
+
+*/
+
+@RestController
+public class AlienControllerRestApi {
 	
 	@Autowired
 	AlienRepo repo; 
 	
 	@GetMapping("aliens")
-	@ResponseBody
+//	@ResponseBody
 	public List<Alien> getAliens() {
 		
 		List<Alien> aliens = repo.findAll();
@@ -28,7 +36,7 @@ public class AlienController {
 	}
 
 	@GetMapping("alien/{aid}")
-	@ResponseBody
+//	@ResponseBody
 	public Alien getAlien(@PathVariable("aid") int aid) {
 		
 		Alien alien = repo.findById(aid).orElse(new Alien(0, ""));
@@ -37,5 +45,3 @@ public class AlienController {
 	}
 
 }
-
-*/
