@@ -55,7 +55,7 @@ public class HomeController
 		
 	//	List<Alien> alien = repo.getByAid(aid);
 		
-		List<Alien> alien = repo.findByAid(aid);
+		List<Alien> alien = repo.getByAid(aid);
 		
 		m.addAttribute("result", alien);
 		
