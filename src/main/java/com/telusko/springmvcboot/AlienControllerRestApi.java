@@ -33,7 +33,9 @@ public class AlienControllerRestApi {
 	public List<Alien> getAliens() {
 		
 		List<Alien> aliens = repo.findAll();
-				
+		int i = 9 / 0;
+		System.out.println("Fetching Aliens");
+		
 		return aliens;
 	}
 
