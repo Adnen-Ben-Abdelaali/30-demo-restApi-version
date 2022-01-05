@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,7 +27,8 @@ public class AlienControllerRestApi {
 	@Autowired
 	AlienRepo repo; 
 	
-	@GetMapping("aliens")
+	@GetMapping(path ="aliens", produces = {"application/xml"})
+//	@GetMapping(path ="aliens", produces = {"application/json"})
 //	@ResponseBody
 	public List<Alien> getAliens() {
 		
@@ -43,5 +45,14 @@ public class AlienControllerRestApi {
 		
 		return alien;
 	}
+	
+	@PostMapping(path = "alien", consumes = {"application/json"})
+	public Alien addAlien(Alien alien) {
+		
+		repo.save(alien);
+		
+		return alien;
+	}
+	
 
 }
